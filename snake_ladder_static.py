@@ -1,5 +1,14 @@
 import random
 
+Snake_bite = {
+    14:4,
+    20:2,
+    24:48,
+    36:16,
+    56:88,
+    96:12
+}
+   
 
 # Player class
 class Player():
@@ -34,27 +43,6 @@ def gameMaster(inPlayer):
         print("Player rolled: %i" % roll)
         movePlayer(inPlayer, roll)
         checkPosition(inPlayer)
-
-
-def crooked_dice():
-    user_input = input("Do you want to enter snake moves(Y/N): ")
-    print(user_input)
-    user_input = user_input.lower()
-    Snake_bite = {}
-    if user_input == 'y':
-        no_of_move = int(input('Enter Number of moves :'))
-        print("Enter %i move" % no_of_move)
-        for i in range(no_of_move):
-            key, value = input().split()
-            Snake_bite[key] = value
-        return Snake_bite
-    elif user_input == 'n':
-        return Snake_bite
-    else:
-        print("Please type Y/N:")
-
-    Snake_bite = "{"+", ".join(["{}:{}".format(k,v) for k,v in Snake_bite.items()])+"}"
-    return  Snake_bite
 
 
 def rollDice():
@@ -92,8 +80,6 @@ if __name__ == '__main__':
     size_of_board = int(input("Enter the size of board: "))
     numPlayers = int(input('Enter number of players: '))
     Player_name = input("Enter the player name 01:")
-    Snake_bite = crooked_dice()
-    print(Snake_bite)
     playerList = []
     
     for i in range(0,numPlayers):

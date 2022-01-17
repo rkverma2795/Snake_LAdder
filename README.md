@@ -8,4 +8,4 @@ or
 
 
 Please don't use odd number becase our dice 
-have only even number otherwise oor game will not stop.
+have only even number otherwise our game will not stop.

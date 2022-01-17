@@ -1,6 +1,5 @@
 import random
 
-
 # Player class
 class Player():
     def __init__(self, inPlayerNum):
@@ -65,6 +64,21 @@ def rollDice():
     return result
 
 
+def crooked_dice():
+    user_input = input("Do you want to enter snake moves(Y/N): ")
+    if user_input.lower() == 'yes' or 'Y' or 'y':
+        Snake_bite = {}
+        no_of_move = int(input('Enter Number of moves :'))
+        print("Enter {} move".format(no_of_move))
+        for i in range(no_of_move):
+            key, value = input().split()
+            Snake_bite[key] = value
+
+    else:
+        Snake_bite = {}
+    Snake_bite = "{"+", ".join(["{}:{}".format(k,v) for k,v in Snake_bite.items()])+"}"
+    return  Snake_bite
+    
 # Handle player movements
 def movePlayer(inPlayer, roll):
     if inPlayer.getPosition() + roll <= size_of_board:
@@ -72,6 +86,7 @@ def movePlayer(inPlayer, roll):
         print("Player %s at spot %i" % (Player_name,inPlayer.getPosition()))
     else:
         print("Player %s rolled too far" % Player_name)
+
 
 
 # Checks player landing position and adjusts if snake or ladder
